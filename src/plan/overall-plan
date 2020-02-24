@@ -1,0 +1,35 @@
+Signup/Login page
+Main page
+    - choose topic for revision
+        - REACT
+        - REDUX
+        - JS
+
+User Profile 
+        - last revision date
+        - last revision score
+        - topics which have been revised the most
+
+Revision page
+        - show card
+        - allow user to flip card
+        - allow user to mark card for future revision priority
+        - go to next card
+        - leave the session
+
+"Add flash-card" option for logged in users
+
+Logged in users can:
+        - take flash-card quizes
+        - take quizes
+        - add flashcards
+        - their profile keeps a score
+        - they car review flash-cards/quizes
+        - flag cards for review
+
+Visitors can:
+        - take flash-card quizes
+        - take quizes
+        - their data/progress is not saved
+
+The user should be able to select categories they want to revise, the number of questions, the type of quiz etc. before starting
