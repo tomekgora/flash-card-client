@@ -1,0 +1,27 @@
+### ALL USER STORIES ###
+-  to search flashcards by term/definition/creation date/topic/etc.
+-  to create new flash cards
+-  to add flashcards to custom study-set
+-  to add new topic
+-  to login
+-  to sign-up with a new account
+-  to  new request password if signed-up and password forgotten
+-  to view personal statistics
+-  to flag card as duplicate
+-  to flag card for review
+-  to add existing card to alternative topic
+-  to view list of topics available
+-  to conduct a revision session, choosing topic, number of cards and difficulty 
+-  to indicate the perceived difficulty of flash-card
+-  to share the flash-card on other platforms (facebook/twitter/etc.)
+-  to save incomplete session in local memory
+
+### MVP ###
+- to sign-up
+- to login
+- if LOGGED IN:
+    - add flash-cards
+    - flag flash-cards for review
+- if NOT LOGGED IN:
+    - view topics
+    - view flashcards in each topic
