@@ -57,8 +57,8 @@ class LoginSignup extends Component {
     event.preventDefault();
     this.props.signUpUser({
       userName: this.state.formData.userName,
-      userPassword: this.state.formData.userPassword,
-      userPasswordConfirm: this.state.formData.userPasswordConfirm
+      userPassword: this.state.formData.userPassword
+      // userPasswordConfirm: this.state.formData.userPasswordConfirm
     });
   };
 
@@ -123,4 +123,14 @@ class LoginSignup extends Component {
   }
 } // component closed
 
-export default LoginSignup;
+function mapStateToProps(reduxState) {
+  return {
+    user: reduxState.user
+  };
+}
+const mapDispatchToProps = {
+  signUpUser,
+  loginUser
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginSignup);
