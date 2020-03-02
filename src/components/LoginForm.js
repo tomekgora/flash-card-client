@@ -10,7 +10,7 @@ const LoginForm = props => (
         <Header.Subheader>Please login to access the site</Header.Subheader>
       </Header.Content>
     </Header>
-    <Form success>
+    <Form onSubmit={props.handleSubmit}>
       <Form.Input
         icon="user"
         iconPosition="left"

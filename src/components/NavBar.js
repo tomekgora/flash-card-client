@@ -8,7 +8,7 @@ export default class NavBar extends Component {
 
   render() {
     return (
-      <Menu size="Large">
+      <Menu size="large">
         <Menu.Item
           name="Card Categories"
           active={this.state.activeItem === "Card Categories"}

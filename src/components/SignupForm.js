@@ -17,7 +17,7 @@ const SignupForm = props => (
         <Header.Subheader>Please create a new account</Header.Subheader>
       </Header.Content>
     </Header>
-    <Form>
+    <Form onSubmit={props.handleSubmit}>
       <Form.Input
         icon="user"
         iconPosition="left"

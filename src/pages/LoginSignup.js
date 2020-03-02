@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
+import { signUpUser } from "../actions/user";
+import { loginUser } from "../actions/user";
 import {
   Header,
   Icon,
@@ -37,6 +39,7 @@ class LoginSignup extends Component {
   handleChange = event => {
     this.setState({
       formData: {
+        ...this.state.formData,
         [event.target.name]: event.target.value
       }
     });
@@ -44,18 +47,18 @@ class LoginSignup extends Component {
 
   handleSubmitLogin = event => {
     event.preventDefault();
-    this.props.loginUpUser({
-      userName: this.state.userName,
-      userPassword: this.state.userPassword
+    this.props.loginUser({
+      userName: this.state.formData.userName,
+      userPassword: this.state.formData.userPassword
     });
   };
 
-  handleSubmitSignup = event => {
+  handleSubmitSignUp = event => {
     event.preventDefault();
-    this.props.signupUpUser({
-      userName: this.state.userName,
-      userPassword: this.state.userPassword,
-      userPasswordConfirm: this.state.userPasswordConfirm
+    this.props.signUpUser({
+      userName: this.state.formData.userName,
+      userPassword: this.state.formData.userPassword,
+      userPasswordConfirm: this.state.formData.userPasswordConfirm
     });
   };
 
@@ -69,6 +72,7 @@ class LoginSignup extends Component {
         <LoginForm
           handleChange={this.handleChange}
           formData={this.state.formData}
+          handleSubmit={this.handleSubmitLogin}
         />
       );
       columnRight = (
@@ -92,6 +96,7 @@ class LoginSignup extends Component {
         <SignupForm
           handleChange={this.handleChange}
           formData={this.state.formData}
+          handleSubmit={this.handleSubmitSignUp}
         />
       );
     }
