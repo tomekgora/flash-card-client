@@ -15,6 +15,7 @@ const LoginForm = props => (
         icon="user"
         iconPosition="left"
         name="userName"
+        value={props.formData.userName}
         label="Your Username"
         placeholder="Please enter username"
         onChange={props.handleChange}
@@ -24,8 +25,10 @@ const LoginForm = props => (
         icon="lock"
         iconPosition="left"
         name="userPassword"
+        value={props.formData.userPassword}
         label="Your Password"
         placeholder="Please enter password"
+        onChange={props.handleChange}
         width={10}
         type="password"
       />

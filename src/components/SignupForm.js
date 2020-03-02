@@ -8,45 +8,48 @@ import {
   Message
 } from "semantic-ui-react";
 
-const SignupForm = () => (
+const SignupForm = props => (
   <Container>
     <Header as="h2">
       <Icon name="signup" />
       <Header.Content>
         Signup
-        <Header.Subheader>Please login to access the site</Header.Subheader>
+        <Header.Subheader>Please create a new account</Header.Subheader>
       </Header.Content>
     </Header>
     <Form>
       <Form.Input
         icon="user"
         iconPosition="left"
+        name="userName"
+        value={props.formData.userName}
         label="Your Username"
         placeholder="Please enter username"
+        onChange={props.handleChange}
         width={10}
       />
       <Form.Input
         icon="lock"
         iconPosition="left"
+        name="userPassword"
+        value={props.formData.userPassword}
         label="Your Password"
         placeholder="Please enter password"
+        onChange={props.handleChange}
         width={10}
         type="password"
       />
       <Form.Input
         icon="lock"
         iconPosition="left"
-        label="Your Password"
+        label="Password confirmation"
+        name="userPasswordConfirm"
+        value={props.formData.userPasswordConfirm}
         placeholder="Please confirm your password"
+        onChange={props.handleChange}
         width={10}
         type="password"
       />
-      {/* <Message
-        success
-        compact
-        header="Form Completed"
-        content="You have successfully signed up and will be redirected to the main page."
-      /> */}
       <Button color="secondary">Signup</Button>
     </Form>
   </Container>

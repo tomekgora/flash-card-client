@@ -15,9 +15,11 @@ import {
 class LoginSignup extends Component {
   state = {
     mode: "login",
-    userName: "",
-    userPassword: "",
-    userPasswordConfirm: ""
+    formData: {
+      userName: "",
+      userPassword: "",
+      userPasswordConfirm: ""
+    }
   };
 
   handleChangeMode = () => {
@@ -34,7 +36,9 @@ class LoginSignup extends Component {
 
   handleChange = event => {
     this.setState({
-      [event.target.name]: event.target.value
+      formData: {
+        [event.target.name]: event.target.value
+      }
     });
   };
 
@@ -61,7 +65,12 @@ class LoginSignup extends Component {
     let columnRight;
 
     if (mode === "login") {
-      columnLeft = <LoginForm handleChange={this.handleChange} />;
+      columnLeft = (
+        <LoginForm
+          handleChange={this.handleChange}
+          formData={this.state.formData}
+        />
+      );
       columnRight = (
         <Button
           content="Sign-up"
@@ -79,7 +88,12 @@ class LoginSignup extends Component {
           onClick={this.handleChangeMode}
         />
       );
-      columnRight = <SignupForm />;
+      columnRight = (
+        <SignupForm
+          handleChange={this.handleChange}
+          formData={this.state.formData}
+        />
+      );
     }
 
     return (
