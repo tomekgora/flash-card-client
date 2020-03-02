@@ -32,7 +32,7 @@ const LoginForm = props => (
         width={10}
         type="password"
       />
-      <Button color="secondary">Login</Button>
+      <Button color="black">Login</Button>
     </Form>
   </Container>
 );

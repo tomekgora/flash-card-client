@@ -50,7 +50,7 @@ const SignupForm = props => (
         width={10}
         type="password"
       />
-      <Button color="secondary">Signup</Button>
+      <Button color="black">Signup</Button>
     </Form>
   </Container>
 );
