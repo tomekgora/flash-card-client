@@ -73,6 +73,7 @@ class LoginSignup extends Component {
           handleChange={this.handleChange}
           formData={this.state.formData}
           handleSubmit={this.handleSubmitLogin}
+          error={this.props.error}
         />
       );
       columnRight = (
@@ -97,6 +98,7 @@ class LoginSignup extends Component {
           handleChange={this.handleChange}
           formData={this.state.formData}
           handleSubmit={this.handleSubmitSignUp}
+          error={this.props.error}
         />
       );
     }
@@ -125,7 +127,8 @@ class LoginSignup extends Component {
 
 function mapStateToProps(reduxState) {
   return {
-    user: reduxState.user
+    user: reduxState.user,
+    error: reduxState.error
   };
 }
 const mapDispatchToProps = {

@@ -7,6 +7,16 @@ const userLoggedIn = user => ({
   payload: user
 });
 
+const signupError = error => ({
+  type: "SIGNUP_ERROR",
+  payload: error
+});
+
+const loginError = error => ({
+  type: "LOGIN_ERROR",
+  payload: error
+});
+
 export const loginUser = user => dispatch => {
   request
     .post(`${baseUrl}/login`)
@@ -15,7 +25,10 @@ export const loginUser = user => dispatch => {
       const action = userLoggedIn(res.body);
       dispatch(action);
     })
-    .catch(console.error);
+    .catch(error => {
+      const action = loginError(error);
+      dispatch(action);
+    });
 };
 
 export const signUpUser = user => dispatch => {
@@ -23,8 +36,12 @@ export const signUpUser = user => dispatch => {
     .post(`${baseUrl}/sign-up`)
     .send(user)
     .then(res => {
+      console.log("Response to signUpUser: ", res);
       const action = userLoggedIn(res.body);
       dispatch(action);
     })
-    .catch(console.error);
+    .catch(error => {
+      const action = signupError(error);
+      dispatch(action);
+    });
 };

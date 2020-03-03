@@ -1,5 +1,12 @@
 import React from "react";
-import { Header, Icon, Container, Button, Form } from "semantic-ui-react";
+import {
+  Message,
+  Header,
+  Icon,
+  Container,
+  Button,
+  Form
+} from "semantic-ui-react";
 
 const LoginForm = props => (
   <Container>
@@ -10,7 +17,11 @@ const LoginForm = props => (
         <Header.Subheader>Please login to access the site</Header.Subheader>
       </Header.Content>
     </Header>
-    <Form onSubmit={props.handleSubmit}>
+    <Form
+      success={props.success}
+      error={props.error.login}
+      onSubmit={props.handleSubmit}
+    >
       <Form.Input
         icon="user"
         iconPosition="left"
@@ -32,7 +43,17 @@ const LoginForm = props => (
         width={10}
         type="password"
       />
-      <Button color="black">Login</Button>
+      <Message
+        error
+        header="We encountered a problem."
+        content={props.error.login}
+      />
+      <Form.Button
+        color="black"
+        disabled={!props.formData.userName || !props.formData.userPassword}
+      >
+        Login
+      </Form.Button>
     </Form>
   </Container>
 );

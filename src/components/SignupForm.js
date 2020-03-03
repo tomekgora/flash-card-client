@@ -17,7 +17,7 @@ const SignupForm = props => (
         <Header.Subheader>Please create a new account</Header.Subheader>
       </Header.Content>
     </Header>
-    <Form onSubmit={props.handleSubmit}>
+    <Form error={props.error.signup} onSubmit={props.handleSubmit}>
       <Form.Input
         icon="user"
         iconPosition="left"
@@ -50,7 +50,21 @@ const SignupForm = props => (
         width={10}
         type="password"
       />
-      <Button color="black">Signup</Button>
+      <Message
+        error
+        header="We encountered a problem."
+        content={props.error.signup}
+      />
+      <Form.Button
+        color="black"
+        disabled={
+          !props.formData.userName ||
+          !props.formData.userPassword ||
+          !props.formData.userPasswordConfirm
+        }
+      >
+        Signup
+      </Form.Button>
     </Form>
   </Container>
 );
