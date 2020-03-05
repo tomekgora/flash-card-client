@@ -30,20 +30,14 @@ class Quiz extends Component {
 
   componentDidMount() {
     this.props.getQuiz();
-    console.log("quiz: ", this.props.flashcard);
   }
 
   handleClickNext = () => {
-    console.log("this is the total: ", this.props.flashcard.quiz.total);
     if (this.state.currentCard < this.props.flashcard.quiz.total - 1) {
       this.setState({
         ...this.state,
         currentCard: this.state.currentCard + 1
       });
-      console.log(
-        "current value of this.state.currentCard: ",
-        this.state.currentCard
-      );
     }
   };
 
@@ -65,10 +59,6 @@ class Quiz extends Component {
   handleMarkWrong = () => {};
 
   render() {
-    console.log(
-      "current value of this.state.currentCard: ",
-      this.state.currentCard
-    );
     if (this.props.flashcard.quiz === null) {
       return "Loading...";
     } else {
