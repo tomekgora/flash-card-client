@@ -34,14 +34,27 @@ class Quiz extends Component {
   }
 
   handleClickNext = () => {
-    if (this.state.currentCard >= this.props.flashcard.quiz.total)
+    if (this.state.currentCard <= this.props.flashcard.quiz.total) {
       this.setState({
         ...this.state,
         currentCard: this.state.currentCard + 1
       });
+    } else {
+      this.setState({
+        ...this.state,
+        currentCard: this.state.currentCard
+      });
+    }
   };
 
-  handleClickBack = () => {};
+  handleClickBack = () => {
+    if (this.state.currentCard <= this.props.flashcard.quiz.total) {
+      this.setState({
+        ...this.state,
+        currentCard: this.state.currentCard - 1
+      });
+    }
+  };
 
   handleClickFlip = () => {};
 
@@ -63,6 +76,7 @@ class Quiz extends Component {
               <Grid.Column width={12}>
                 <FlashCard
                   handleClickNext={this.handleClickNext}
+                  handleClickBack={this.handleClickBack}
                   term={card.term}
                   definition={card.definition}
                 />

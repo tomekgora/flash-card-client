@@ -23,7 +23,11 @@ const FlashCard = props => {
             <Popup
               content="previous card"
               trigger={
-                <Button icon labelPosition="left">
+                <Button
+                  icon
+                  labelPosition="left"
+                  onClick={props.handleClickBack}
+                >
                   <Icon name="left arrow" />
                   Back
                 </Button>
