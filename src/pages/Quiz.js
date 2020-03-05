@@ -28,27 +28,29 @@ class Quiz extends Component {
   //   //   flashcards: this.props.flashcard.quiz.flashcards
   // };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getQuiz();
     console.log("quiz: ", this.props.flashcard);
   }
 
   handleClickNext = () => {
-    if (this.state.currentCard <= this.props.flashcard.quiz.total) {
+    console.log("this is the total: ", this.props.flashcard.quiz.total);
+    if (this.state.currentCard < this.props.flashcard.quiz.total - 1) {
       this.setState({
         ...this.state,
         currentCard: this.state.currentCard + 1
       });
-    } else {
-      this.setState({
-        ...this.state,
-        currentCard: this.state.currentCard
-      });
+      console.log(
+        "current value of this.state.currentCard: ",
+        this.state.currentCard
+      );
     }
   };
 
   handleClickBack = () => {
-    if (this.state.currentCard <= this.props.flashcard.quiz.total) {
+    let currentCard = this.state.currentCard;
+    let total = this.props.flashcard.quiz.total;
+    if (currentCard < total && currentCard > 0) {
       this.setState({
         ...this.state,
         currentCard: this.state.currentCard - 1
@@ -63,6 +65,10 @@ class Quiz extends Component {
   handleMarkWrong = () => {};
 
   render() {
+    console.log(
+      "current value of this.state.currentCard: ",
+      this.state.currentCard
+    );
     if (this.props.flashcard.quiz === null) {
       return "Loading...";
     } else {
